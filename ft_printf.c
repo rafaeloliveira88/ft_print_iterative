@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:37:00 by rafael            #+#    #+#             */
-/*   Updated: 2024/11/20 12:51:58 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:58:57 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_printf(const char *f, ...)
 	va_end(list);
 	return (count);
 }
-/*
+
 #include "ft_printf.h"
 int main()
 {
@@ -73,4 +73,3 @@ int main()
 	ft_printf("%");
 	printf("%");
 }
-*/
