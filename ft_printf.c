@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:37:00 by rafael            #+#    #+#             */
-/*   Updated: 2024/11/15 12:55:30 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/20 12:51:58 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ static int	ft_process_variables(char type, va_list args)
 		return (ft_putnbr(va_arg(args, unsigned int), 16, 'X'));
 	else if (type == '%')
 		return (ft_putchar('%'));
-	return (0);
+	else if(type == '\0')
+		return (1);
+	return (-1);
 }
 
 int	ft_printf(const char *f, ...)
@@ -45,8 +47,9 @@ int	ft_printf(const char *f, ...)
 		return (-1);
 	while (*f)
 	{
-		if (*f == '%')
+		if (*f == '%' && *(f+1)){
 			result = ft_process_variables(*(++f), list);
+		}
 		else
 			result = ft_putchar(*f);
 		if (result < 0)
@@ -60,3 +63,14 @@ int	ft_printf(const char *f, ...)
 	va_end(list);
 	return (count);
 }
+/*
+#include "ft_printf.h"
+int main()
+{
+	ft_printf("%s", NULL);
+	printf("%s", NULL);
+
+	ft_printf("%");
+	printf("%");
+}
+*/

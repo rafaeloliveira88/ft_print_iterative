@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbraux.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafael <rafael@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:17:43 by rafael            #+#    #+#             */
-/*   Updated: 2024/11/15 16:52:04 by rafael           ###   ########.fr       */
+/*   Updated: 2024/11/20 12:57:37 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_getsize(long nbr, int base)
+int	ft_getsize_i(long nbr, int base)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ int	ft_getsize(long nbr, int base)
 	return (count);
 }
 
-int	ft_getsizeu(unsigned long nbr, int base)
+int	ft_getsize_ui(unsigned long nbr, int base)
 {
 	int	count;
 
@@ -43,7 +43,7 @@ int	ft_getsizeu(unsigned long nbr, int base)
 	return (count);
 }
 
-int	ft_putaux(long nbr, int base, char *format_base)
+int	ft_putnbr_i(long nbr, int base, char *format_base)
 {
 	long	n;
 	int		i;
@@ -51,7 +51,7 @@ int	ft_putaux(long nbr, int base, char *format_base)
 	int		size;
 
 	ft_bzero(temp, 21);
-	size = ft_getsize(nbr, base);
+	size = ft_getsize_i(nbr, base);
 	n = nbr;
 	i = size;
 	if (n < 0)
@@ -70,7 +70,7 @@ int	ft_putaux(long nbr, int base, char *format_base)
 	return (size);
 }
 
-int	ft_putauxu(unsigned int nbr, int base, char *format_base)
+int	ft_putnbr_ui(unsigned int nbr, int base, char *format_base)
 {
 	unsigned int	n;
 	int				i;
@@ -78,7 +78,7 @@ int	ft_putauxu(unsigned int nbr, int base, char *format_base)
 	int				size;
 
 	ft_bzero(temp, 21);
-	size = ft_getsizeu(nbr, base);
+	size = ft_getsize_ui(nbr, base);
 	n = nbr;
 	i = size;
 	while (--i >= 0)
@@ -93,7 +93,7 @@ int	ft_putauxu(unsigned int nbr, int base, char *format_base)
 	return (size);
 }
 
-int	ft_putauxptr(unsigned long nbr, int base, char *format_base)
+int	ft_putnbr_ul(unsigned long nbr, int base, char *format_base)
 {
 	unsigned long	n;
 	int				i;
@@ -105,7 +105,7 @@ int	ft_putauxptr(unsigned long nbr, int base, char *format_base)
 	ft_bzero(temp, 21);
 	if (ft_putstr("0x") < 0)
 		return (-1);
-	size = ft_getsizeu(nbr, base);
+	size = ft_getsize_ui(nbr, base);
 	n = nbr;
 	i = size;
 	while (--i >= 0)

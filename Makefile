@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rafael <rafael@student.42.fr>              +#+  +:+       +#+         #
+#    By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 18:42:51 by rafael            #+#    #+#              #
-#    Updated: 2024/11/15 15:14:39 by rafael           ###   ########.fr        #
+#    Updated: 2024/11/19 13:37:42 by rjose-ma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,11 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS =		ft_printf.c \
-			ft_putchar.c  \
-			ft_putnbr.c ft_putstr.c \
-			ft_putnbraux.c ft_bzero.c
+			ft_putchar.c \
+			ft_putnbr.c \
+			ft_putstr.c \
+			ft_putnbraux.c \
+			ft_bzero.c \
 
 OFILES = ${SRCS:.c=.o}
 
